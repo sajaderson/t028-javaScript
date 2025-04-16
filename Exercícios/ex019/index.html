@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Nome do Aluno:
+    <input type="text" name="" id="inputNomeAluno" />
+    <input onclick="cadastrar()" type="button" value="Cadastrar" />
+    <input onclick="imprimir()" type="button" value="Imprimir Lista" />
+    <input onclick="limpar()" type="button" value="Limpar" />
+
+    <p id="resultado"></p>
+
+    <script>
+      let listaAlunos = [];
+      const resultado = document.getElementById("resultado");
+
+      function cadastrar() {
+        const inputNomeAluno = document.getElementById("inputNomeAluno");
+
+        if (isNaN(inputNomeAluno)){
+          alert('Campo vazio')
+          return
+        }
+
+        if (listaAlunos.indexOf(inputNomeAluno.value) === -1) {
+          listaAlunos.push(inputNomeAluno.value);
+          inputNomeAluno.value = "";
+          inputNomeAluno.focus();
+        } else {
+          alert('Aluno já foi cadastrado!')
+        }
+      }
+
+      function imprimir() {
+        resultado.innerHTML = "";
+        for (let i = 0; i < listaAlunos.length; i++) {
+          resultado.innerHTML += `<p>Aluno: ${listaAlunos[i]}</p>`;
+        }
+      }
+
+      function limpar() {
+        listaAlunos = [];
+        resultado.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
