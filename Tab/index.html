@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .layout {
+        display: flex;
+        border: 1px solid red;
+      }
+      .nav {
+        height: 100vh;
+        width: 30%;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+      }
+      .nav a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        justify-content: center;
+      }
+      .nav a:hover {
+        background-color: dodgerblue;
+      }
+      main {
+        width: 100%;
+      }
+      .section {
+        height: 100vh;
+        border: 1px solid black;
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <nav class="nav">
+        <a href="#" onclick="showSection('section--1')">Menu 1</a>
+        <a href="#" onclick="showSection('section--2')">Menu 2</a>
+        <a href="#" onclick="showSection('section--3')">Menu 3</a>
+        <a href="#" onclick="showSection('section--4')">Menu 4</a>
+      </nav>
+      <main>
+        <section id="section--1" class="section">Sessão 1</section>
+        <section id="section--2" class="section">Sessão 2</section>
+        <section id="section--3" class="section">Sessão 3</section>
+        <section id="section--4" class="section">Sessão 4</section>
+      </main>
+    </div>
+
+    <script>
+      function showSection(sectionId) {
+        // Esconde todas as sections
+        document.querySelectorAll(".section").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Mostra apenas a section selecionada
+        const activeSection = document.getElementById(sectionId);
+        activeSection.classList.add("active");
+      }
+
+      // Mostrar a primeira section por padrão
+      document.addEventListener("DOMContentLoaded", function () {
+        showSection("section--1");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      <label for="">Digite o 1º número</label>
+      <input type="number" name="" id="inputPrimeiro" />
+    </p>
+    <p>
+      <label for="">Digite o 2º número</label>
+      <input type="number" name="" id="inputSegundo" />
+    </p>
+
+    <input onclick="maior()" type="button" value="Verificar" />
+
+    <p id="resultado"></p>
+
+    <script>
+      function maior() {
+        let num1 = document.getElementById("inputPrimeiro").value;
+        let num2 = document.getElementById("inputSegundo").value;
+
+        
+        if (num1 === num2) {
+          resultado.innerHTML = `O números ${num1} e ${num2} são iguais`;
+        } else if (num1 >= num2) {
+          resultado.innerHTML = `O valor ${num1} é maior.`;
+        } else {
+          resultado.innerHTML = `O valor ${num2} é maior`;
+        }
+      }
+    </script>
+  </body>
+</html>
